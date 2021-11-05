@@ -1,0 +1,18 @@
+os:
+  - linux
+
+dist: xenial
+
+# To install additional packages.
+sudo: required
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y pandoc
+
+script:
+  - make all
+  - make clean
+  - make CC=gcc CFLAGS="-Werror" all
+  - make clean
+  - make CC=clang CFLAGS="-Wno-gnu-zero-variadic-macro-arguments -Werror" all
