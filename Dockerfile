@@ -49,3 +49,6 @@ RUN cd /root/hpsahba/ && make && cp hpsahba /usr/local/bin/
 RUN hpsahba -h
 
 COPY unsupported-modules.conf /etc/modprobe.d/10-unsupported-modules.conf
+
+RUN echo "options hpsa hpsa_use_nvram_hba_flag=1" > /etc/modprobe.d/hpsa.conf
+
