@@ -37,9 +37,13 @@ RUN zypper install -y kernel-default kernel-devel gcc make dkms
 COPY var_lib_dkms /var/lib/dkms
 
 ENV KERNELRELEASE=5.3.18-59.27-default
-RUN dkms install -k $KERNELRELEASE --force hpsa-dkms/1.0
+
+RUN rm /lib/modules/${KERNELRELEASE}/kernel/drivers/scsi/hpsa.ko.xz
+
+RUN dkms uninstall -k $KERNELRELEASE --force hpsa-dkms/1.0 ;\
+    dkms install -k $KERNELRELEASE --force hpsa-dkms/1.0 
+
 
 COPY hpsahba /root/hpsahba
 RUN cd /root/hpsahba/ && make && cp hpsahba /usr/local/bin/
 RUN hpsahba -h
-
