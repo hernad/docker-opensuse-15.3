@@ -1,0 +1,10 @@
+DKMS make.log for hpsa-dkms-1.0 for kernel 5.3.18-59.27-default (x86_64)
+Fri Nov  5 08:00:40 UTC 2021
+make -C /usr/lib/modules/5.3.18-59.27-default/build M=/var/lib/dkms/hpsa-dkms/1.0/build modules
+make[1]: Entering directory '/usr/src/linux-5.3.18-59.27-obj/x86_64/default'
+  CC [M]  /var/lib/dkms/hpsa-dkms/1.0/build/hpsa.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /var/lib/dkms/hpsa-dkms/1.0/build/hpsa.mod.o
+  LD [M]  /var/lib/dkms/hpsa-dkms/1.0/build/hpsa.ko
+make[1]: Leaving directory '/usr/src/linux-5.3.18-59.27-obj/x86_64/default'
