@@ -47,3 +47,5 @@ RUN dkms uninstall -k $KERNELRELEASE --force hpsa-dkms/1.0 ;\
 COPY hpsahba /root/hpsahba
 RUN cd /root/hpsahba/ && make && cp hpsahba /usr/local/bin/
 RUN hpsahba -h
+
+COPY unsupported-modules.conf /etc/modprobe.d/10-unsupported-modules.conf
